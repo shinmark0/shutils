@@ -39,8 +39,12 @@ def convert1970todate(filename):
     datetime_filestr = datetime_name.strftime("%Y%m%d-%H%M%S") + extstr
     
     basepath = os.getcwd()
-    os.rename(filename, datetime_filestr)
-    print("file.find: [" + filename + "] to [" + datetime_filestr + "]")
+    if os.path.isfile(datetime_filestr):
+        print("failed to rename: [" + datetime_filestr + "] already exists.")
+    else:
+        os.rename(filename, datetime_filestr)
+        print("file.find: [" + filename + "] to [" + datetime_filestr + "]")
+
     return
 
 while True:

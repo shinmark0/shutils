@@ -24,8 +24,13 @@ def exifToFilename(filename):
 
         resultfn = renamedstr + ext
 
-        os.rename(filename, resultfn)
-        print("rename: [" + filename + "] to [" + resultfn + "]")
+        # Windows 에서는 변경할 파일명으로 파일이 이미 존재하면 예외가 발생하므로 별도 확인이 필요 없으나
+        # Unix 에서는 이미 파일이 존재해도 덮어써버리기 때문에 반드시 사전확인이 필요하다.
+        if os.path.isfile(resultfn):
+            print("failed to rename: [" + resultfn + "] already exists.")
+        else:
+            os.rename(filename, resultfn)
+            print("rename: [" + filename + "] to [" + resultfn + "]")
             
     return
 
