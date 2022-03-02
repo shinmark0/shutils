@@ -19,7 +19,7 @@
 ## 간단한 사용법
 1. 해당 파일을, 파일명을 바꾸려 하는 디렉토리 또는 폴더에 복사해 둔다.
 2. 아래와 같이 타이핑 해 준다.
-    > ls | python3 exif2fs.py
+    > ls | python3 exif2fn.py
    
     만약 mp4 확장자를 가진 파일의 파일명만 변환하고 싶다면 아래와 같이 입력한다.
-    > ls *.mp4 | python3 exif2fs.py
+    > ls *.mp4 | python3 exif2fn.py
