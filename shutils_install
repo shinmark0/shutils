@@ -1,0 +1,4 @@
+#!/bin/zsh
+mkdir ~/shutils
+find . | grep -e '\.py' | xargs -I{}  cp {} ~/shutils
+
