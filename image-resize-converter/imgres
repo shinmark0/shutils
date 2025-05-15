@@ -1,0 +1,3 @@
+#!/bin/zsh
+SCRIPT_DIR=$(dirname $0)
+/usr/bin/python3 $SCRIPT_DIR/imgres.py "$@"

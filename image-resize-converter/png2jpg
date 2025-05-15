@@ -1,0 +1,2 @@
+#!/bin/zsh
+ls *.png | xargs -I {} imgres -s "{}" -f jpg
