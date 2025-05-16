@@ -1,0 +1,3 @@
+#!/bin/zsh
+SCRIPT_DIR=$(dirname $0)
+/usr/bin/python3 $SCRIPT_DIR/sign.py -i $1 -s $SCRIPT_DIR/stamp-ai.png -sc 0.1
