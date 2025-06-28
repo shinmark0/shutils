@@ -1,3 +1,8 @@
+# author: chatGPT4o
+# designer: shinmark0
+# 이미지에 사인 입히는 툴입니다. 그림에 사인 넣거나 사진에 스탬프 박아넣는 용도로 쓸만합니다.
+# Sign stamp tool on image. Useful for draw sign or stamp on photo.
+
 import argparse
 from PIL import Image
 import os
@@ -11,6 +16,13 @@ POSITION_MAP = {
 }
 
 def calculate_position(base_size, overlay_size, position_code):
+    """
+    기준 이미지 위에 서명을 배치할 좌표(x, y)를 계산하는 함수
+    
+    base_size: 기준 이미지 크기 (width, height)
+    overlay_size: 서명 이미지 크기 (width, height)
+    position_code: 위치 코드 (예: 'BR', 'CC')
+    """
     base_w, base_h = base_size
     overlay_w, overlay_h = overlay_size
 
@@ -34,6 +46,15 @@ def calculate_position(base_size, overlay_size, position_code):
     return x, y
 
 def apply_signature(original_path, sign_path, position_code, scale, quality):
+    """
+    원본 이미지에 서명을 덧입히는 함수
+
+    original_path: 원본 이미지 경로
+    sign_path: 서명 이미지 경로
+    position_code: 위치 코드 (예: 'BR')
+    scale: 서명 크기 비율 (기준 너비 대비)
+    quality: 저장 품질 (0~100)
+    """
     base_img = Image.open(original_path).convert("RGBA")
     sign_img = Image.open(sign_path).convert("RGBA")
 
